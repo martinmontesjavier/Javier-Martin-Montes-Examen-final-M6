@@ -1,0 +1,35 @@
+{
+    "personajes": [
+      {
+        "nombre": "Goku",
+        "edad": 48,
+        "nivel_de_poder": 9000,
+        "imagen": "https://i.blogs.es/8eaa43/goku-day-dragon-ball/1366_2000.jpeg"
+      },
+      {
+        "nombre": "Vegeta",
+        "edad": 52,
+        "nivel_de_poder": 8500,
+        "imagen": "https://i.blogs.es/b60b7d/vegeta/1366_2000.jpeg"
+      },
+      {
+        "nombre": "Gohan",
+        "edad": 28,
+        "nivel_de_poder": 7000,
+        "imagen": "https://sm.ign.com/t/ign_latam/screenshot/default/gohan-ssj2_a9kk.1280.jpg"
+      },
+      {
+        "nombre": "Piccolo",
+        "edad": 31,
+        "nivel_de_poder": 6000,
+        "imagen": "https://www.mundodeportivo.com/alfabeta/hero/2023/07/alfabeta.1690195409.653.jpg"
+      },
+      {
+        "nombre": "Freezer",
+        "edad": 49,
+        "nivel_de_poder": 12000,
+        "imagen": "https://media.vandalsports.com/master/11-2020/20201110102444_1.jpg"
+      }
+    ]
+  }
+  
