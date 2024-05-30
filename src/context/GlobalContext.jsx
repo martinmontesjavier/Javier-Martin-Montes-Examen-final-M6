@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import dragonBall from "../bd/bd.json"
 
 export const GlobalContext = createContext();
 
@@ -22,12 +23,15 @@ export function GlobalContextProvider({ children }) {
 //     fetchHistorias();
 //   }, []);
 
+  const [base, setBase] = useState(dragonBall.personajes);
+
   return (
     <GlobalContext.Provider value={{
     //   historias, setHistorias,
     //   dataHistoria, setDataHistoria,
     //   isCreatingNew, setIsCreatingNew,
     //   fetchHistorias
+      base, setBase
     }}>
       {children}
     </GlobalContext.Provider>
