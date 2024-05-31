@@ -9,6 +9,7 @@ export function Header() {
                     <button class="btn btn-secondary ms-2"> <Link className="nav-link fs-5 text-light" to="/">Panel</Link></button>
                     <button class="btn btn-secondary ms-2"> <Link className="nav-link fs-5 text-light" to="/login">Login</Link></button>
                     <button class="btn btn-secondary ms-2"> <Link className="nav-link fs-5 text-light" to="/registro">Registro</Link></button>
+                    <button class="btn btn-secondary ms-2"> <Link className="nav-link fs-5 text-light" to="/nuevoTicket">Nuevo Ticket</Link></button>
                 </div>
             <div>
                 <span id="nombreUsuario" class="d-none"></span>
