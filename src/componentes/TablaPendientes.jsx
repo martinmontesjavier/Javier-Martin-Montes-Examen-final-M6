@@ -39,32 +39,34 @@ export function TablaPendientes() {
 
 
   const controladorNuevoTicketResuelto = async (id) => {
-    setTicket((basePendientes.filter(ticket => ticket.id == id)))
+    setTicket(basePendientes.filter(ticket => ticket.id == id))
     setTicket({
         ...ticket,
         fecha_resuelto: "31/05/2024",
     })
 
     console.log("Nuevo Ticket:", ticket);
-    // try {
-    //   const response = await fetch('https://javier-martin-montes-api-examen-m6.vercel.app/ticketsResueltos', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(ticket),
-    //   });
+    try {
+      const response = await fetch('https://javier-martin-montes-api-examen-m6.vercel.app/ticketsResueltos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(ticket),
+      });
 
-    //   if (response.ok) {
-    //     console.log("Ticket añadido exitosamente");
-    //     await fetchHistorias(); // Actualiza el estado global con las historias más recientes
-    //   } else {
-    //     console.error("Error al añadir ticket");
-    //   }
+      if (response.ok) {
+        console.log("Ticket añadido exitosamente");
+        await fetchHistorias(); // Actualiza el estado global con las historias más recientes
+      } else {
+        console.error("Error al añadir ticket");
+      }
 
-    // } catch (error) {
-    //   console.error("Error en la solicitud para añadir ticket:", error);
-    // }
+    } catch (error) {
+      console.error("Error en la solicitud para añadir ticket:", error);
+    }
+
+    //controladorBorrar(id)
   };
 
   return (

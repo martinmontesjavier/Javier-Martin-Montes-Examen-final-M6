@@ -9,7 +9,7 @@ export function GlobalContextProvider({ children }) {
 
   const [basePendientes, setBasePendientes] = useState([]); 
   const [baseResueltos, setBaseResueltos] = useState([]); 
-  const [ticket, setTicket] = useState([])
+  const [ticket, setTicket] = useState(null)
 
   const fetchPendientes = async () => {
     try {
