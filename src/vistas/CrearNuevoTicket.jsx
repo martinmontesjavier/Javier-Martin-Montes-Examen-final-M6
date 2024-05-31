@@ -12,7 +12,7 @@ export function VistaNuevoTicket() {
   const [descripcion, setDescripcion] = useState("");
   const [alumno, setAlumno] = useState("");
 
-  const AnyadirTicket = async (e) => {+
+  const AnyadirTicket = async (e) => {
     e.preventDefault()
     const nuevoTicket = { codigo, fecha, aula, grupo, ordenador, descripcion, alumno };
     setTicket(nuevoTicket)
