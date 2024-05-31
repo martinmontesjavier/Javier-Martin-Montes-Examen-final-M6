@@ -1,37 +1,32 @@
 import { createContext, useState, useEffect } from "react";
-import dragonBall from "../bd/bd.json"
 
 export const GlobalContext = createContext();
 
 export function GlobalContextProvider({ children }) {
-//   const [historias, setHistorias] = useState([]);
-//   const [dataHistoria, setDataHistoria] = useState(null);
-//   const [isCreatingNew, setIsCreatingNew] = useState(false);
+  const [base, setBase] = useState([]);
+  const [modalAbierto, setModalAbierto] = useState(false);
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
 
-//   const fetchHistorias = async () => {
-//     try {
-//       const response = await fetch("https://proyecto-historias-api.vercel.app/historias");
-//       const data = await response.json();
-//       console.log("Data API:", data);  // Verifica la respuesta de la API
-//       setHistorias(data);
-//     } catch (error) {
-//       console.error("Error fetching historias:", error);
-//     }
-//   };
+  const fetchHistorias = async () => {
+    try {
+      const response = await fetch("https://javier-martin-montes-api-examen-m6.vercel.app/personajes");
+      const data = await response.json();
+      setBase(data);
+    } catch (error) {
+      console.error("Error fetching historias:", error);
+    }
+  };
 
-//   useEffect(() => {
-//     fetchHistorias();
-//   }, []);
-
-  const [base, setBase] = useState(dragonBall.personajes);
+  useEffect(() => {
+    fetchHistorias();
+  }, []);
 
   return (
     <GlobalContext.Provider value={{
-    //   historias, setHistorias,
-    //   dataHistoria, setDataHistoria,
-    //   isCreatingNew, setIsCreatingNew,
-    //   fetchHistorias
-      base, setBase
+      base, setBase,
+      modalAbierto, setModalAbierto,
+      selectedCharacter, setSelectedCharacter,
+      fetchHistorias
     }}>
       {children}
     </GlobalContext.Provider>
