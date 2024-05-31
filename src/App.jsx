@@ -6,6 +6,7 @@ import { Header } from './componentes/Header'
 import { Panel } from './vistas/Panel'
 import { Login } from './vistas/Login'
 import { Registro } from './vistas/Registro'
+import { VistaNuevoTicket } from './vistas/CrearNuevoTicket'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
               <Route path="/" element={<Panel/>}></Route>
               <Route path="/login" element={<Login/>}></Route>
               <Route path="/registro" element={<Registro/>}></Route>
+              <Route path="/nuevoTicket" element={<VistaNuevoTicket/>}></Route>
           </Routes>
         </div>
       </Router>
