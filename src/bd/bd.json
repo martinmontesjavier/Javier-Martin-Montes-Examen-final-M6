@@ -1,35 +1,90 @@
 {
-    "personajes": [
-      {
-        "nombre": "Goku",
-        "edad": 48,
-        "nivel_de_poder": 9000,
-        "imagen": "https://i.blogs.es/8eaa43/goku-day-dragon-ball/1366_2000.jpeg"
-      },
-      {
-        "nombre": "Vegeta",
-        "edad": 52,
-        "nivel_de_poder": 8500,
-        "imagen": "https://i.blogs.es/b60b7d/vegeta/1366_2000.jpeg"
-      },
-      {
-        "nombre": "Gohan",
-        "edad": 28,
-        "nivel_de_poder": 7000,
-        "imagen": "https://sm.ign.com/t/ign_latam/screenshot/default/gohan-ssj2_a9kk.1280.jpg"
-      },
-      {
-        "nombre": "Piccolo",
-        "edad": 31,
-        "nivel_de_poder": 6000,
-        "imagen": "https://www.mundodeportivo.com/alfabeta/hero/2023/07/alfabeta.1690195409.653.jpg"
-      },
-      {
-        "nombre": "Freezer",
-        "edad": 49,
-        "nivel_de_poder": 12000,
-        "imagen": "https://media.vandalsports.com/master/11-2020/20201110102444_1.jpg"
-      }
-    ]
-  }
-  
+  "ticketsPendientes": [
+    {
+      "codigo": "123459",
+      "fecha": "18/04/2023",
+      "aula": "T6",
+      "grupo": "DAW1",
+      "ordenador": "PC3",
+      "descripcion": "Error de impresora",
+      "alumno": "Ana Martínez"
+    },
+    {
+      "codigo": "123460",
+      "fecha": "19/04/2023",
+      "aula": "T8",
+      "grupo": "DAW2",
+      "ordenador": "PC4",
+      "descripcion": "Problema de acceso a archivos",
+      "alumno": "Pedro Gómez"
+    },
+    {
+      "codigo": "123461",
+      "fecha": "20/04/2023",
+      "aula": "T6",
+      "grupo": "DAW1",
+      "ordenador": "PC1",
+      "descripcion": "Aplicacion se cierra inesperadamente",
+      "alumno": "Sofía Fernández"
+    },
+    {
+      "codigo": "123462",
+      "fecha": "21/04/2023",
+      "aula": "T7",
+      "grupo": "DAW2",
+      "ordenador": "PC2",
+      "descripcion": "Problema de conexion a la red",
+      "alumno": "Luis Torres"
+    },
+    {
+      "codigo": "123463",
+      "fecha": "22/04/2023",
+      "aula": "T8",
+      "grupo": "DAW1",
+      "ordenador": "PC3",
+      "descripcion": "Archivos corruptos",
+      "alumno": "Carolina Ramírez"
+    },
+    {
+      "codigo": "3",
+      "fecha": "22/04/2023",
+      "aula": "T8",
+      "grupo": "DAW1",
+      "ordenador": "PC3",
+      "descripcion": "Archivos corruptos",
+      "alumno": "pACO"
+    }
+  ],
+  "ticketsResueltos": [
+    {
+      "codigo": "123457",
+      "fecha": "16/04/2023",
+      "fecha_resuelto": "15/05/2023",
+      "aula": "T7",
+      "grupo": "DAW2",
+      "ordenador": "PC1",
+      "descripcion": "Problema de conexion a Internet",
+      "alumno": "Maria Lopez"
+    },
+    {
+      "codigo": "123458",
+      "fecha": "17/04/2023",
+      "fecha_resuelto": "15/05/2023",
+      "aula": "T8",
+      "grupo": "DAW1",
+      "ordenador": "PC2",
+      "descripcion": "Pantalla en blanco",
+      "alumno": "Juan Rodriguez"
+    },
+    {
+      "codigo": "123459",
+      "fecha": "18/04/2023",
+      "fecha_resuelto": "15/05/2023",
+      "aula": "T8",
+      "grupo": "DAW1",
+      "ordenador": "PC3",
+      "descripcion": "Error de impresora",
+      "alumno": "Ana Martinez"
+    }
+  ]
+}
