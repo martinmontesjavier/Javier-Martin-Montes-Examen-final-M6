@@ -2,21 +2,17 @@ import { Link } from "react-router-dom";
 
 export function Header() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div className="container-fluid">
-                <p className="text-light fs-5">Javier Martín Montes</p>
-                <div className="collapse navbar-collapse justify-content-center">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link className="nav-link fs-5 text-light" to="/">Home</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link fs-5 text-light" to="/ejercicio1">Ejercicio 1</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link fs-5 text-light" to="/ejercicio2">Ejercicio 2</Link>
-                        </li>
-                    </ul>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand">Gestión de incidencias FPLLEFIA</a>
+                <div>
+                    <button class="btn btn-secondary ms-2"> <Link className="nav-link fs-5 text-light" to="/">Panel</Link></button>
+                    <button class="btn btn-secondary ms-2"> <Link className="nav-link fs-5 text-light" to="/login">Login</Link></button>
+                    <button class="btn btn-secondary ms-2"> <Link className="nav-link fs-5 text-light" to="/registro">Registro</Link></button>
+                </div>
+            <div>
+                <span id="nombreUsuario" class="d-none"></span>
+                <button id="cerrarSesion" class="d-none btn btn-secondary ms-2">CERRAR SESIÓN</button>
                 </div>
             </div>
         </nav>
