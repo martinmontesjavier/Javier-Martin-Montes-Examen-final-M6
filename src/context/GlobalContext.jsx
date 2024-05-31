@@ -1,32 +1,21 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
+import ticketsBD from "../bd/bd.json"
 
 export const GlobalContext = createContext();
 
 export function GlobalContextProvider({ children }) {
-  const [base, setBase] = useState([]);
+  const [basePendientes, setBasePendientes] = useState(ticketsBD.ticketsPendientes); 
+  const [baseResueltos, setBaseResueltos] = useState(ticketsBD.ticketsResueltos); 
+
   const [modalAbierto, setModalAbierto] = useState(false);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
 
-  const fetchHistorias = async () => {
-    try {
-      const response = await fetch("https://javier-martin-montes-api-examen-m6.vercel.app/personajes");
-      const data = await response.json();
-      setBase(data);
-    } catch (error) {
-      console.error("Error fetching historias:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchHistorias();
-  }, []);
-
   return (
     <GlobalContext.Provider value={{
-      base, setBase,
+      basePendientes, setBasePendientes,
+      baseResueltos, setBaseResueltos,
       modalAbierto, setModalAbierto,
       selectedCharacter, setSelectedCharacter,
-      fetchHistorias
     }}>
       {children}
     </GlobalContext.Provider>
