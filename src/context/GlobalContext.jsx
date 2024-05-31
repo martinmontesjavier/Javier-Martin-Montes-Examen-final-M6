@@ -10,6 +10,7 @@ export function GlobalContextProvider({ children }) {
 
  const [base, setBase] = useState([]);
  const [modalAbierto, setModalAbierto] = useState(false);
+ const [selectedCharacter, setSelectedCharacter] = useState(null);
 
   const fetchHistorias = async () => {
     try {
@@ -35,7 +36,8 @@ export function GlobalContextProvider({ children }) {
     //   isCreatingNew, setIsCreatingNew,
     //   fetchHistorias
       base, setBase,
-      modalAbierto, setModalAbierto
+      modalAbierto, setModalAbierto,
+      selectedCharacter, setSelectedCharacter
     }}>
       {children}
     </GlobalContext.Provider>

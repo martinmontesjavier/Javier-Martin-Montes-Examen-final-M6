@@ -3,16 +3,17 @@ import { GlobalContext } from "../context/GlobalContext";
 import { MiModal } from "./MiModal";
 
 export function Tarjeta({ id, nombre, edad, nivel_de_poder, imagen }) {
-    const { setModalAbierto } = useContext(GlobalContext);
+    const { setModalAbierto, setSelectedCharacter } = useContext(GlobalContext);
 
     const handleEditar = () => {
         console.log("Editando", nombre);
-        setModalAbierto(true); // Abrir el modal cuando se hace clic en "Editar"
+        setSelectedCharacter({ nombre, edad, nivel_de_poder, imagen });
+        setModalAbierto(true);
     };
 
     const handleEliminar = () => {
         console.log("Eliminando", nombre);
-        // Lógica para eliminar el personaje
+        // Logic to delete the character
     };
 
     return (
@@ -27,12 +28,6 @@ export function Tarjeta({ id, nombre, edad, nivel_de_poder, imagen }) {
                     <button onClick={handleEliminar} className="btn btn-danger mx-2">Eliminar</button>
                 </div>
             </div>
-            <MiModal
-                nombre={nombre}
-                edad={edad}
-                nivel_de_poder={nivel_de_poder}
-                imagen={imagen}
-            />
         </div>
     );
 }
