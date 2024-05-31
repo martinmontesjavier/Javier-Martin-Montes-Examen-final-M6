@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import { Trash2 } from "lucide-react";
 
 export function TablaPendientes() {
-  const { basePendientes, setBasePendientes, ticket, setTicket } = useContext(GlobalContext);
+  const { basePendientes, setBasePendientes, fetchResueltos, baseResueltos } = useContext(GlobalContext);
 
 
 
@@ -18,6 +18,8 @@ export function TablaPendientes() {
         console.log("Ticket PENDIENTE eliminado exitosamente");
         // Actualizar el estado global eliminando el ticket borrado
         setBasePendientes(basePendientes.filter(ticket => ticket.id !== id));
+        await fetchPendientes();
+        await fetchResueltos();
       } else {
         console.error("Error al eliminar el ticket PENDIENTE");
       }
@@ -26,38 +28,31 @@ export function TablaPendientes() {
     }
   };
 
-//   const controladorResolver = async (id) => {
-//     controladorNuevoTicketResuelto(id)
-//     //controladorBorrar(id)
-//     // setBasePendientes({
-//     //   ...basePendientes,
-//     //   estado: "resuelto"
-//     // })
 
-//   };
+const controladorNuevoTicketResuelto = async (id) => {
+    const ticket = basePendientes.find(ticket => ticket.id === id);
 
+    const nuevoTicket = {
+      ...ticket,
+      id: baseResueltos.lenght +1,
+      fecha_resuelto: "31/05/2024",
+    };
 
+    console.log(nuevoTicket)
 
-  const controladorNuevoTicketResuelto = async (id) => {
-    setTicket(basePendientes.filter(ticket => ticket.id == id))
-    setTicket({
-        ...ticket,
-        fecha_resuelto: "31/05/2024",
-    })
-
-    console.log("Nuevo Ticket:", ticket);
     try {
       const response = await fetch('https://javier-martin-montes-api-examen-m6.vercel.app/ticketsResueltos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(ticket),
+        body: JSON.stringify(nuevoTicket),
       });
 
       if (response.ok) {
         console.log("Ticket añadido exitosamente");
-        await fetchHistorias(); // Actualiza el estado global con las historias más recientes
+        await fetchResueltos();
+
       } else {
         console.error("Error al añadir ticket");
       }
@@ -66,7 +61,7 @@ export function TablaPendientes() {
       console.error("Error en la solicitud para añadir ticket:", error);
     }
 
-    //controladorBorrar(id)
+    controladorBorrar(id)
   };
 
   return (
