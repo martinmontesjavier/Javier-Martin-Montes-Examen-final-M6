@@ -4,6 +4,23 @@ import { GlobalContext } from "../context/GlobalContext";
 export function TablaResueltos() {
   const { baseResueltos } = useContext(GlobalContext);
 
+  const controladorBorrar = async () => {
+    try {
+      const response = await fetch(`https://javier-martin-montes-api-examen-m6.vercel.app/ticketsResueltos${codigo}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        console.log("Ticket RESUELTO eliminado exitosamente");
+        await fetchHistorias(); // Actualiza el estado global con las historias más recientes
+      } else {
+        console.error("Error al eliminar ticket RESUELTO");
+      }
+    } catch (error) {
+      console.error("Error en la solicitud para ticket RESUELTO:", error);
+    }
+  };
+
   return (
     <table className="table mt-4">
       <thead>
