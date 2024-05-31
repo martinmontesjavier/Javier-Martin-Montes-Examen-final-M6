@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import { Trash2 } from "lucide-react";
 
 export function TablaResueltos() {
-  const { basePendientes, setBasePendientes } = useContext(GlobalContext);
+  const { baseResueltos, setBaseResueltos } = useContext(GlobalContext);
 
   const controladorBorrar = async (id) => {
     try {
@@ -15,7 +15,7 @@ export function TablaResueltos() {
       if (response.ok) {
         console.log("Ticket RESUELTO eliminado exitosamente");
         // Actualizar el estado global eliminando el ticket borrado
-        setBasePendientes(basePendientes.filter(ticket => ticket.id !== id));
+        setBaseResueltos(baseResueltos.filter(ticket => ticket.id !== id));
       } else {
         console.error("Error al eliminar el ticket RESUELTO");
       }
@@ -31,6 +31,7 @@ export function TablaResueltos() {
           <th>Id</th>
           <th>Código</th>
           <th>Fecha</th>
+          <th>Fecha resuelto</th>
           <th>Aula</th>
           <th>Grupo</th>
           <th>Ordenador</th>
@@ -41,11 +42,12 @@ export function TablaResueltos() {
         </tr>
       </thead>
       <tbody>
-        {basePendientes.map((ticket) => (
+        {baseResueltos.map((ticket) => (
           <tr key={ticket.id}>
             <td>{ticket.id}</td>
             <td>{ticket.codigo}</td>
             <td>{ticket.fecha}</td>
+            <td>{ticket.fecha_resuelto}</td>
             <td>{ticket.aula}</td>
             <td>{ticket.grupo}</td>
             <td>{ticket.ordenador}</td>

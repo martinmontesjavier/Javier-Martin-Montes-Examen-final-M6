@@ -9,6 +9,7 @@ export function GlobalContextProvider({ children }) {
 
   const [basePendientes, setBasePendientes] = useState([]); 
   const [baseResueltos, setBaseResueltos] = useState([]); 
+  const [ticket, setTicket] = useState([])
 
   const fetchPendientes = async () => {
     try {
@@ -49,6 +50,7 @@ export function GlobalContextProvider({ children }) {
     <GlobalContext.Provider value={{
       basePendientes, setBasePendientes,
       baseResueltos, setBaseResueltos,
+      ticket, setTicket,
       modalAbierto, setModalAbierto,
       selectedCharacter, setSelectedCharacter,
     }}>

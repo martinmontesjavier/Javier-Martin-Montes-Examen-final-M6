@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 import { Button } from "react-bootstrap";
 import { Trash2 } from "lucide-react";
 
 export function TablaPendientes() {
-  const { basePendientes, setBasePendientes } = useContext(GlobalContext);
+  const { basePendientes, setBasePendientes, ticket, setTicket } = useContext(GlobalContext);
+
+
 
   const controladorBorrar = async (id) => {
     try {
@@ -22,6 +24,47 @@ export function TablaPendientes() {
     } catch (error) {
       console.error("Error en la solicitud para eliminar el ticket PENDIENTE:", error);
     }
+  };
+
+//   const controladorResolver = async (id) => {
+//     controladorNuevoTicketResuelto(id)
+//     //controladorBorrar(id)
+//     // setBasePendientes({
+//     //   ...basePendientes,
+//     //   estado: "resuelto"
+//     // })
+
+//   };
+
+
+
+  const controladorNuevoTicketResuelto = async (id) => {
+    setTicket((basePendientes.filter(ticket => ticket.id == id)))
+    setTicket({
+        ...ticket,
+        fecha_resuelto: "31/05/2024",
+    })
+
+    console.log("Nuevo Ticket:", ticket);
+    // try {
+    //   const response = await fetch('https://javier-martin-montes-api-examen-m6.vercel.app/ticketsResueltos', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(ticket),
+    //   });
+
+    //   if (response.ok) {
+    //     console.log("Ticket añadido exitosamente");
+    //     await fetchHistorias(); // Actualiza el estado global con las historias más recientes
+    //   } else {
+    //     console.error("Error al añadir ticket");
+    //   }
+
+    // } catch (error) {
+    //   console.error("Error en la solicitud para añadir ticket:", error);
+    // }
   };
 
   return (
@@ -52,7 +95,11 @@ export function TablaPendientes() {
             <td>{ticket.ordenador}</td>
             <td>{ticket.descripcion}</td>
             <td>{ticket.alumno}</td>
-            <td><button className="btn btn-success" title="Resolver ticket">Resolver</button></td>
+            <td>
+                <Button onClick={() => controladorNuevoTicketResuelto(ticket.id)} className="btn btn-success" variant="ghost" radius="lg" size="sm">
+                    Resolver
+                </Button>
+            </td>
             <td><button className="btn btn-warning" title="Añadir comentario"><i className="bi bi-pencil" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button></td>
             <td><button className="btn btn-info" title="Ver comentarios"><i className="bi bi-chat-left-text"></i></button></td>
             <td>
